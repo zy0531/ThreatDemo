@@ -206,9 +206,9 @@ public class RouteManager : MonoBehaviour
 
 
         // Map to the ground & add a small offset on y axis
-        TriggerRed.SetOrigin(new Vector3(route.ThreatTransform.position.x, 0.20f, route.ThreatTransform.position.z));
-        TriggerYellow.SetOrigin(new Vector3(route.ThreatTransform.position.x, 0.18f, route.ThreatTransform.position.z));
-        TriggerGreen.SetOrigin(new Vector3(route.ThreatTransform.position.x, 0.16f, route.ThreatTransform.position.z));
+        TriggerRed.SetOrigin(new Vector3(route.ThreatTransform.position.x, 0.17f, route.ThreatTransform.position.z));
+        TriggerYellow.SetOrigin(new Vector3(route.ThreatTransform.position.x, 0.16f, route.ThreatTransform.position.z));
+        TriggerGreen.SetOrigin(new Vector3(route.ThreatTransform.position.x, 0.15f, route.ThreatTransform.position.z));
 
         switch (route.level)
         {

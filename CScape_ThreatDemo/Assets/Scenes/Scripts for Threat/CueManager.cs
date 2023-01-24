@@ -34,117 +34,7 @@ public class CueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Set Trigger
-        //TriggerRed.GetComponent<SphereCollider>().radius = viewDistance_L1_Red;
-        //TriggerRed.GetComponent<SphereCollider>().center = new Vector3(threatTransform.position.x, 0, threatTransform.position.z);
-        //TriggerYellow.GetComponent<SphereCollider>().radius = viewDistance_L2_Yellow;
-        //TriggerYellow.GetComponent<SphereCollider>().center = new Vector3(threatTransform.position.x, 0, threatTransform.position.z);
-        //TriggerGreen.GetComponent<SphereCollider>().radius = viewDistance_L3_Green;
-        //TriggerGreen.GetComponent<SphereCollider>().center = new Vector3(threatTransform.position.x, 0, threatTransform.position.z);
-
-        ///// ********** Initialize Trigger Zone ********** ///
-        //var TriggerRed = TriggerRedZone.GetComponent<TriggerColor>();
-        //var TriggerYellow = TriggerYellowZone.GetComponent<TriggerColor>();
-        //var TriggerGreen = TriggerGreenZone.GetComponent<TriggerColor>();
-
-        //// Map to the ground & add a small offset on y axis
-        //TriggerRed.SetOrigin(new Vector3(threatTransform.position.x, 0.20f, threatTransform.position.z));
-        //TriggerYellow.SetOrigin(new Vector3(threatTransform.position.x, 0.18f, threatTransform.position.z));
-        //TriggerGreen.SetOrigin(new Vector3(threatTransform.position.x, 0.16f, threatTransform.position.z));
-
-        //switch (level)
-        //{
-        //    case 3:
-        //        TriggerRed.SetFOV(fov_L1_Red);
-        //        TriggerRed.SetViewDistance(viewDistance_L1_Red);
-        //        TriggerYellow.SetFOV(fov_L2_Yellow);
-        //        TriggerYellow.SetViewDistance(viewDistance_L2_Yellow);
-        //        TriggerGreen.SetFOV(fov_L3_Green);
-        //        TriggerGreen.SetViewDistance(viewDistance_L3_Green);
-        //        break;
-
-        //    case 2:
-        //        TriggerRed.SetFOV(fov_L1_Red);
-        //        TriggerRed.SetViewDistance(viewDistance_L1_Red);
-        //        TriggerYellow.SetFOV(fov_L2_Yellow);
-        //        TriggerYellow.SetViewDistance(viewDistance_L2_Yellow);
-        //        TriggerGreen.SetFOV(0f);
-        //        TriggerGreen.SetViewDistance(0f);
-        //        break;
-
-        //    case 1:
-        //        TriggerRed.SetFOV(fov_L1_Red);
-        //        TriggerRed.SetViewDistance(viewDistance_L1_Red);
-        //        TriggerYellow.SetFOV(0f);
-        //        TriggerYellow.SetViewDistance(0f);
-        //        TriggerGreen.SetFOV(0f);
-        //        TriggerGreen.SetViewDistance(0f);
-        //        break;
-
-        //    default:
-        //        break;
-
-        //}
-        ///// ********** Initialize Trigger Zone End ********** ///
-
-
-
-        ///// ********** Initialize FOV Cue ********** ///
-        //    var FOVCue_Red = FOVCue.transform.GetChild(0).GetComponent<FieldOfView>();
-        //    var FOVCue_Yellow = FOVCue.transform.GetChild(1).GetComponent<FieldOfView>();
-        //    var FOVCue_Green = FOVCue.transform.GetChild(2).GetComponent<FieldOfView>();
-        //    Debug.Log(FOVCue_Yellow);
-
-        //    // Map to the ground & add a small offset on y axis
-        //    FOVCue_Red.SetOrigin(new Vector3(threatTransform.position.x, 0.20f, threatTransform.position.z));
-        //    FOVCue_Yellow.SetOrigin(new Vector3(threatTransform.position.x, 0.18f, threatTransform.position.z));
-        //    FOVCue_Green.SetOrigin(new Vector3(threatTransform.position.x, 0.16f, threatTransform.position.z));
-
-        //    switch (level)
-        //    {
-        //        case 3:
-        //            FOVCue_Red.SetFOV(fov_L1_Red);
-        //            FOVCue_Red.SetViewDistance(viewDistance_L1_Red);
-        //            FOVCue_Yellow.SetFOV(fov_L2_Yellow);
-        //            FOVCue_Yellow.SetViewDistance(viewDistance_L2_Yellow);
-        //            FOVCue_Green.SetFOV(fov_L3_Green);
-        //            FOVCue_Green.SetViewDistance(viewDistance_L3_Green);
-        //            break;
-
-        //        case 2:
-        //            FOVCue_Red.SetFOV(fov_L1_Red);
-        //            FOVCue_Red.SetViewDistance(viewDistance_L1_Red);
-        //            FOVCue_Yellow.SetFOV(fov_L2_Yellow);
-        //            FOVCue_Yellow.SetViewDistance(viewDistance_L2_Yellow);
-        //            FOVCue_Green.SetFOV(0f);
-        //            FOVCue_Green.SetViewDistance(0f);
-        //        break;
-
-        //        case 1:
-        //            FOVCue_Red.SetFOV(fov_L1_Red);
-        //            FOVCue_Red.SetViewDistance(viewDistance_L1_Red);
-        //            FOVCue_Yellow.SetFOV(0f);
-        //            FOVCue_Yellow.SetViewDistance(0f);
-        //            FOVCue_Green.SetFOV(0f);
-        //            FOVCue_Green.SetViewDistance(0f);
-        //        break;
-
-        //        default:
-        //            break;
-
-        //    }
-        ///// ********** Initialize FOV Cue End ********** ///
-
-
-
        
-        /// 
-
-        ///// ********** Initialize Laser Cue ********** ///
-        //var laser = LaserCue.GetComponent<Laser>();
-        //laser.SetFOV(fov_L1_Red);
-        //laser.SetViewDistance(viewDistance_L1_Red);
-        ///// ********** Initialize Laser Cue End ********** ///
 
 
     }
@@ -152,41 +42,7 @@ public class CueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(ActivateFOVCue)
-        //{
-        //    FOVCue.SetActive(true);
-        //}
-        //else
-        //{
-        //    FOVCue.SetActive(false);
-        //}
-
-        //if(ActivateLaserCue)
-        //{
-        //    LaserCue.SetActive(true);
-        //}
-        //else
-        //{
-        //    LaserCue.SetActive(false);
-        //}
-
-        //if (ActivateHighlightCue)
-        //{
-        //    HighlightCue.SetActive(true);
-        //}
-        //else
-        //{
-        //    HighlightCue.SetActive(false);
-        //}
-
-        //if (ActivateTextCue)
-        //{
-        //    TextCue.SetActive(true);
-        //}
-        //else
-        //{
-        //    TextCue.SetActive(false);
-        //}
+        
     }
 
     /// <summary>
@@ -208,9 +64,9 @@ public class CueManager : MonoBehaviour
         var FOVCue_Green = FOVCue.transform.GetChild(2).GetComponent<FieldOfView>();
 
         // Map to the ground & add a small offset on y axis
-        FOVCue_Red.SetOrigin(new Vector3(threatTransform.position.x, 0.20f, threatTransform.position.z));
-        FOVCue_Yellow.SetOrigin(new Vector3(threatTransform.position.x, 0.18f, threatTransform.position.z));
-        FOVCue_Green.SetOrigin(new Vector3(threatTransform.position.x, 0.16f, threatTransform.position.z));
+        FOVCue_Red.SetOrigin(new Vector3(threatTransform.position.x, 0.17f, threatTransform.position.z));
+        FOVCue_Yellow.SetOrigin(new Vector3(threatTransform.position.x, 0.16f, threatTransform.position.z));
+        FOVCue_Green.SetOrigin(new Vector3(threatTransform.position.x, 0.15f, threatTransform.position.z));
 
         Debug.Log("threatTransform.localEulerAngles " + threatTransform.localEulerAngles);
         Debug.Log("threatTransform.EulerAngles " + threatTransform.rotation);
