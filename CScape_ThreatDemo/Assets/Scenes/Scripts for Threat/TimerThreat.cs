@@ -8,12 +8,12 @@ public class TimerThreat : MonoBehaviour
     [SerializeField] TMP_Text TimerTxt;
 
     public bool TimerOn = false;
-    public float UsedTime = 0f;
+    // public float ColorGlobal.UsedTime = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -21,8 +21,8 @@ public class TimerThreat : MonoBehaviour
     {
         if(TimerOn)
         {
-            UsedTime += Time.deltaTime;
-            UpdateTimerTxt(UsedTime);
+            ColorGlobal.UsedTime += Time.deltaTime;
+            UpdateTimerTxt(ColorGlobal.UsedTime);
         }
     }
 
@@ -30,13 +30,13 @@ public class TimerThreat : MonoBehaviour
     {
         Debug.Log("SetTimerOn!");
         TimerOn = true;
-        UsedTime = 0f;
+        ColorGlobal.UsedTime = 0f;
     }
 
     public void SetTimerOff()
     {
         Debug.Log("SetTimerOff!");
-        UsedTime = 0f;
+        ColorGlobal.UsedTime = 0f;
         TimerOn = false;
         TimerTxt.text = "";
     }
@@ -47,6 +47,9 @@ public class TimerThreat : MonoBehaviour
         float minutes = Mathf.FloorToInt(UsedTime / 60);
         float seconds = Mathf.FloorToInt(UsedTime % 60);
 
-        TimerTxt.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        TimerTxt.text = string.Format("{0:00}:{1:00}", minutes, seconds)
+            + "\n UsedTime:" + ColorGlobal.UsedTime
+            + "\n UsedTimeInRed:" + ColorGlobal.UsedTimeInRed
+            + "\n UsedTimeInYellow:" + ColorGlobal.UsedTimeInYellow;
     }
 }

@@ -20,28 +20,26 @@ public class Laser : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lineRenderer = gameObject.GetComponent<LineRenderer>();
-        //lineRenderer.startWidth = 1f;
-        lineRenderer.useWorldSpace = true;
+        //lineRenderer = gameObject.GetComponent<LineRenderer>();
+        ////lineRenderer.startWidth = 1f;
+        //lineRenderer.useWorldSpace = true;
 
-        // calculate StartPos and EndPos
-        StartPos = transform.position;
-        VerticalAngle = new Vector3(viewDistance, -transform.position.y, 0).normalized;
-        RadialDistance = Mathf.Sqrt(viewDistance * viewDistance + transform.position.y * transform.position.y);
-        EndPos = transform.position + VerticalAngle * RadialDistance;
-        //record initial vector
-        InitialVector = EndPos - StartPos;
+        //// calculate StartPos and EndPos
+        //StartPos = transform.position;
+        //VerticalAngle = new Vector3(viewDistance, -transform.position.y, 0).normalized;
+        //RadialDistance = Mathf.Sqrt(viewDistance * viewDistance + transform.position.y * transform.position.y);
+        //EndPos = transform.position + VerticalAngle * RadialDistance;
+        ////record initial vector
+        //InitialVector = EndPos - StartPos;
 
-        lineRenderer.SetPosition(0, StartPos);
-        lineRenderer.SetPosition(1, EndPos);
+        //lineRenderer.SetPosition(0, StartPos);
+        //lineRenderer.SetPosition(1, EndPos);
 
 }
 
     // Update is called once per frame
     void FixedUpdate()
-    {
-        
-        
+    {   
         //rotate a point around a pivot
         //https://answers.unity.com/questions/532297/rotate-a-vector-around-a-certain-point.html
         VerticalAngle = EndPos - StartPos;
@@ -63,6 +61,27 @@ public class Laser : MonoBehaviour
     public void SetViewDistance(float viewDistance)
     {
         this.viewDistance = viewDistance;
+    }
+
+    public void GenerateLaserCue(Transform threatTransform)
+    {
+        lineRenderer = gameObject.GetComponent<LineRenderer>();
+        //lineRenderer.startWidth = 1f;
+        lineRenderer.useWorldSpace = true;
+
+        // calculate StartPos and EndPos
+        StartPos = threatTransform.position;
+        
+        VerticalAngle = new Vector3(viewDistance, -threatTransform.position.y, 0).normalized;
+        VerticalAngle = threatTransform.rotation * VerticalAngle;
+        RadialDistance = Mathf.Sqrt(viewDistance * viewDistance + threatTransform.position.y * threatTransform.position.y);
+        EndPos = threatTransform.position + VerticalAngle * RadialDistance;
+        
+        //record initial vector
+        InitialVector = EndPos - StartPos;
+
+        lineRenderer.SetPosition(0, StartPos);
+        lineRenderer.SetPosition(1, EndPos);
     }
 
 }

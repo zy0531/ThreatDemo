@@ -3,7 +3,20 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Pickable
+  - Cube
+  - FreeRotating
+  - Ladder
+  - LadderLandingPad
+  - RouteCollider
+  - Building
+  - Street
+  - Fracture
+  - Landmark
+  - Red
+  - Yellow
+  - Green
   layers:
   - Default
   - TransparentFX
@@ -13,8 +26,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Post Processing
+  - Route
   - 
   - 
   - 

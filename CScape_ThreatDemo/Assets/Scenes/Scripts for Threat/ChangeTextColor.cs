@@ -5,7 +5,8 @@ using TMPro;
 
 public class ChangeTextColor : MonoBehaviour
 {
-    [SerializeField] GameObject ThreatBuilding; 
+    //[SerializeField] GameObject ThreatBuilding;
+    Transform ThreatTransform;
     [SerializeField] TMP_Text ThreatDistanceText;
     public bool distanceOn = false;
     private float distance = 0f;
@@ -20,7 +21,7 @@ public class ChangeTextColor : MonoBehaviour
     {
         if(distanceOn)
         {
-            distance = Vector3.Distance(Camera.main.transform.position, ThreatBuilding.transform.position);
+            distance = Vector3.Distance(Camera.main.transform.position, ThreatTransform.position);
             if (ColorGlobal.InRedArea)
             {
                 //Debug.Log("Text in Red");
@@ -37,7 +38,7 @@ public class ChangeTextColor : MonoBehaviour
             {
                 //Debug.Log(ThreatDistanceText);
                 //Debug.Log("Text in Green");
-                ThreatDistanceText.color = Color.green;
+                ThreatDistanceText.color = Color.white;
                 ThreatDistanceText.text = "Distance to Threat " + distance.ToString("F0") + " Meters";
             }
         }
@@ -58,6 +59,11 @@ public class ChangeTextColor : MonoBehaviour
         distance = 0f;
         distanceOn = false;
         ThreatDistanceText.text = "";
+    }
+
+    public void SetThreatTransform(Transform threatTransform)
+    {
+        ThreatTransform = threatTransform;
     }
 
 

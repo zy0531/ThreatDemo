@@ -1,0 +1,3 @@
+rep "CScape@zyyyyyyy@cloud"
+  path "/"
+    smartbranch "/main"

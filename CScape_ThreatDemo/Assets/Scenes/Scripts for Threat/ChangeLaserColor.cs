@@ -37,7 +37,7 @@ public class ChangeLaserColor : MonoBehaviour
         {
             //Debug.Log("Text in Green");
             // set green
-            Color color = Color.green;
+            Color color = Color.white;
             color.a = Cue_alpha;
             meshRenderer.material.SetColor("_Color", color);
         }

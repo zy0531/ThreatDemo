@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChangeThreatColor : MonoBehaviour
 {
-    [SerializeField] Transform Cue_position;
+    //[SerializeField] Transform Cue_position;
     [SerializeField] float Cue_alpha = 0f;
     [SerializeField] float Cue_x = 0f;
     [SerializeField] float Cue_y = 0f;
@@ -13,14 +13,14 @@ public class ChangeThreatColor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //set position
-        transform.position = Cue_position.position;
-        //set scale
-        transform.localScale = new Vector3(Cue_x, Cue_y, Cue_z);
+        ////set position
+        //transform.position = Cue_position.position;
+        ////set scale
+        //transform.localScale = new Vector3(Cue_x, Cue_y, Cue_z);
 
-        meshRenderer = GetComponent<MeshRenderer>();
-        // get color
-        meshRenderer.material.GetColor("_Color");
+        //meshRenderer = GetComponent<MeshRenderer>();
+        //// get color
+        //meshRenderer.material.GetColor("_Color");
     }
     // Update is called once per frame
     void Update()
@@ -41,13 +41,26 @@ public class ChangeThreatColor : MonoBehaviour
             color.a = Cue_alpha;
             meshRenderer.material.SetColor("_Color", color);
         }
+        // Default Color
         else
         {
             //Debug.Log("Text in Green");
             // set green
-            Color color = Color.green;
+            Color color = Color.white;
             color.a = Cue_alpha;
             meshRenderer.material.SetColor("_Color", color);
         }
+    }
+
+    public void GenerateHighlightCue(Transform threatTransform)
+    {
+        //set position
+        this.transform.position = threatTransform.position;
+        //set scale
+        this.transform.localScale = new Vector3(Cue_x, Cue_y, Cue_z);
+
+        meshRenderer = this.GetComponent<MeshRenderer>();
+        // get color
+        meshRenderer.material.GetColor("_Color");
     }
 }

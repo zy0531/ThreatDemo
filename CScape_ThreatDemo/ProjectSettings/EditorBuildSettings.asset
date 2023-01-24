@@ -4,9 +4,23 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/Scenes/Scene for Experiments/PointingTask_Route2.unity
+    guid: 74f4160f08ff24241996276583c6ebdc
+  - enabled: 0
+    path: Assets/Scenes/Scene for Experiments/MapDrawing_Route2.unity
+    guid: 89ef6322cf8e16e4e9ef23248f94cbc8
+  - enabled: 1
+    path: Assets/Scenes/Scene for Experiments/ThreatDemo.unity
+    guid: c494e437a0edfa347bf47c3be9c24e93
   m_configObjects:
-    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: e9a4fa390f725ba4481d4b51cbce3f5f, type: 2}
-    Varjo.XR.Settings: {fileID: 11400000, guid: 4dd47e530718795449f5d92aa3e1dfed, type: 2}
-    com.unity.input.settings: {fileID: 11400000, guid: 0146fb7746579914ebb7b666913156fb, type: 2}
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 0b58a2e52d8e901438bae35d85e23f04, type: 2}
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 6f36be181a25d1b4496924032a869d8e,
+      type: 2}
+    Varjo.XR.Settings: {fileID: 11400000, guid: 5ab487dfa86de474eb751bd723724115,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: cccabcbe1cb79f8408ad1f3645af43a1,
+      type: 2}
