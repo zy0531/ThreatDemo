@@ -165,10 +165,10 @@ public class CueManager : MonoBehaviour
     /// HighlightCue
     /// </summary>
     /// <param name="threatTransform"></param>
-    public void InitializeHighlightCue(Transform threatTransform)
+    public void InitializeHighlightCue(Transform threatTransform, GameObject threatBuilding)
     {
         var highlight = HighlightCue.GetComponent<ChangeThreatColor>();
-        highlight.GenerateHighlightCue(threatTransform);
+        highlight.GenerateHighlightCue(threatTransform, threatBuilding);
         HighlightCue.SetActive(true);
     }
 

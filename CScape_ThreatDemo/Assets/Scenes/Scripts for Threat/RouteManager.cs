@@ -39,6 +39,7 @@ public struct Threat
     /// </summary>
     public Transform startPosition;
     public Transform ThreatTransform;
+    public GameObject ThreatBuilding;
     public Transform endPosition;
 }
 
@@ -70,7 +71,7 @@ public class RouteManager : MonoBehaviour
         {
             Routes[i].startPosition.transform.parent.gameObject.SetActive(false);
         }
-
+        Debug.Log("Disabled All Routes");
         // Record Data
         Path = dataManager.folderPath;
         FileName = dataManager.fileName;
@@ -173,10 +174,9 @@ public class RouteManager : MonoBehaviour
                     cueManager.InitializeLaserCue(route.ThreatTransform, route.Red_FOV, route.Red_ViewDis);
                 }
                 if (route.ActivateHighlightCue)
-                    if (route.ActivateHighlightCue)
-                    {
-                        cueManager.InitializeHighlightCue(route.ThreatTransform);
-                    }
+                {
+                    cueManager.InitializeHighlightCue(route.ThreatTransform, route.ThreatBuilding);
+                }
                 if (route.ActivateTextCue)
                 {
                     cueManager.InitializeTextCue(route.ThreatTransform);

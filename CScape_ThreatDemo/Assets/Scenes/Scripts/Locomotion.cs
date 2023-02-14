@@ -62,8 +62,10 @@ public class Locomotion : MonoBehaviour
     {
         if (device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxisTouch, out ButtonState) && ButtonState) // using joystick
         {
+            //Body-based steering (Body rotation is tracked by a Vive Tracker)
+            rigidbody.velocity = ProjectToXZPlane(bodyTracker.up) * moveSpeed;
             //Joystick-based steering (rotation is determined by the controller)
-            rigidbody.velocity = ProjectToXZPlane(this.transform.forward) * moveSpeed;
+            //rigidbody.velocity = ProjectToXZPlane(this.transform.forward) * moveSpeed;
         }
     }
 
