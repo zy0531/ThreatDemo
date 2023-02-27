@@ -13,6 +13,7 @@ public class TeleportToStartPosition : MonoBehaviour
     //[SerializeField] Timer timer;
     //[SerializeField] AudioSource StartNavigationAudio;
     [SerializeField] TimerThreat timerThreat;
+    [SerializeField] PointText pointText;
     [SerializeField] ChangeTextColor distanceThreat;
 
     [SerializeField] DataManager dataManager;
@@ -88,6 +89,7 @@ public class TeleportToStartPosition : MonoBehaviour
                 hasStarted = true;
                 // timer.SetTimerOff();
                 timerThreat.SetTimerOn();
+                pointText.SetPointOn();
                 distanceThreat.SetDistanceOn();
 
                 // StartNavigationAudio.PlayDelayed(2);

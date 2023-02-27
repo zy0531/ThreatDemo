@@ -108,7 +108,9 @@ public class RouteManager : MonoBehaviour
             //Record Data
             if (currentRoute_num > 0)
             {
-                float point = 100f - ColorGlobal.UsedTime / 60f * 1f - ColorGlobal.UsedTimeInRed * 3f - ColorGlobal.UsedTimeInYellow * 1f;
+                // float point = 100f - ColorGlobal.UsedTime / 60f * 1f - ColorGlobal.UsedTimeInRed * 3f - ColorGlobal.UsedTimeInYellow * 1f;
+                float point = ColorGlobal.Point;
+                ColorGlobal.Point_TrialEnd = point;
                 RecordData.SaveData(Path, FileName,
                       DateTime.Now.ToString() + ";"
                     + currentRoute_name.ToString() + ";"
@@ -143,7 +145,7 @@ public class RouteManager : MonoBehaviour
                 Debug.Log("ColorGlobal.UsedTimeInYellow: ********** " + ColorGlobal.UsedTimeInYellow);
                 Debug.Log("point: ********** " + point);
             }
-            
+            //Record Data End
 
             if (currentRoute_num < Routes.Count)
             {
@@ -157,6 +159,8 @@ public class RouteManager : MonoBehaviour
                 ColorGlobal.UsedTimeInRed = 0;
                 ColorGlobal.UsedTimeInYellow = 0;
                 ColorGlobal.UsedTime = 0;
+
+                // Do not reset Point
 
                 // Set New route
                 route = Routes[currentRoute_num];

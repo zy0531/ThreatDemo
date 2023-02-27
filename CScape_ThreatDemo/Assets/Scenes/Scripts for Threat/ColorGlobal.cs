@@ -13,4 +13,7 @@ public static class ColorGlobal
     public static float UsedTimeInRed = 0;
     public static float UsedTimeInYellow = 0;
     public static float UsedTime = 0;
+
+    public static float Point = 0;
+    public static float Point_TrialEnd = 0;
 }

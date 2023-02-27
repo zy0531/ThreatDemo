@@ -64,9 +64,9 @@ public class CueManager : MonoBehaviour
         var FOVCue_Green = FOVCue.transform.GetChild(2).GetComponent<FieldOfView>();
 
         // Map to the ground & add a small offset on y axis
-        FOVCue_Red.SetOrigin(new Vector3(threatTransform.position.x, 0.17f, threatTransform.position.z));
-        FOVCue_Yellow.SetOrigin(new Vector3(threatTransform.position.x, 0.16f, threatTransform.position.z));
-        FOVCue_Green.SetOrigin(new Vector3(threatTransform.position.x, 0.15f, threatTransform.position.z));
+        FOVCue_Red.SetOrigin(new Vector3(threatTransform.position.x, 0.12f, threatTransform.position.z));
+        FOVCue_Yellow.SetOrigin(new Vector3(threatTransform.position.x, 0.11f, threatTransform.position.z));
+        FOVCue_Green.SetOrigin(new Vector3(threatTransform.position.x, 0.10f, threatTransform.position.z));
 
         Debug.Log("threatTransform.localEulerAngles " + threatTransform.localEulerAngles);
         Debug.Log("threatTransform.EulerAngles " + threatTransform.rotation);
@@ -191,6 +191,6 @@ public class CueManager : MonoBehaviour
 
     public void InactivateTextCue()
     {
-        LaserCue.SetActive(false);
+        TextCue.SetActive(false);
     }
 }

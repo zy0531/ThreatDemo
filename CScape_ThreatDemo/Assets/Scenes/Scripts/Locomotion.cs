@@ -13,6 +13,7 @@ public class Locomotion : MonoBehaviour
     public float moveSpeed = 4.0f;
 
     InputDevice device;
+    InputDevice device_left;
     bool ButtonState;
     Vector2 primary2DAxisState;
 
@@ -26,6 +27,10 @@ public class Locomotion : MonoBehaviour
         var RightHandDevices = new List<InputDevice>();
         InputDevices.GetDevicesAtXRNode(XRNode.RightHand, RightHandDevices);
 
+        //Find Left Controller
+        var LeftHandDevices = new List<InputDevice>();
+        InputDevices.GetDevicesAtXRNode(XRNode.LeftHand, LeftHandDevices);
+
         if (RightHandDevices.Count == 1)
         {
             device = RightHandDevices[0];
@@ -34,6 +39,16 @@ public class Locomotion : MonoBehaviour
         else if (RightHandDevices.Count > 1)
         {
             Debug.Log("Found more than one right hand!");
+        }
+
+        if (LeftHandDevices.Count == 1)
+        {
+            device_left = LeftHandDevices[0];
+            Debug.Log(string.Format("Device name '{0}' with role '{1}'", device_left.name, device_left.role.ToString()));
+        }
+        else if (LeftHandDevices.Count > 1)
+        {
+            Debug.Log("Found more than one left hand!");
         }
     }
 
@@ -60,10 +75,13 @@ public class Locomotion : MonoBehaviour
     // ******************* using Rigidbody to locomote to avoid going through the walls ******************* //
     void FixedUpdate()
     {
+        Debug.DrawLine(bodyTracker.position, bodyTracker.position + bodyTracker.forward);
         if (device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxisTouch, out ButtonState) && ButtonState) // using joystick
         {
             //Body-based steering (Body rotation is tracked by a Vive Tracker)
-            rigidbody.velocity = ProjectToXZPlane(bodyTracker.up) * moveSpeed;
+            //rigidbody.velocity = ProjectToXZPlane(bodyTracker.up) * moveSpeed;
+            rigidbody.velocity = ProjectToXZPlane(bodyTracker.forward) * moveSpeed;
+            
             //Joystick-based steering (rotation is determined by the controller)
             //rigidbody.velocity = ProjectToXZPlane(this.transform.forward) * moveSpeed;
         }

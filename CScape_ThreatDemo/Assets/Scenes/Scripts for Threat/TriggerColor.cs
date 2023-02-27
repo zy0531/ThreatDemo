@@ -82,7 +82,21 @@ public class TriggerColor : MonoBehaviour
         int triangleIndex = 0;
         for (int i = 0; i <= rayCount; i++)
         {
-            Vector3 vertex = this.origin + UtilsClass.GetVectorFromAngle(angle) * this.viewDistance;
+            //Vector3 vertex = this.origin + UtilsClass.GetVectorFromAngle(angle) * this.viewDistance;
+            Vector3 vertex;
+            RaycastHit hit;
+            LayerMask layerMask = LayerMask.GetMask("Default");
+            if (Physics.Raycast(this.origin, UtilsClass.GetVectorFromAngle(angle), out hit, this.viewDistance, layerMask))
+            {
+                // hit
+                vertex = this.origin + UtilsClass.GetVectorFromAngle(angle) * hit.distance;
+            }
+            else
+            {
+                // no hit
+                vertex = this.origin + UtilsClass.GetVectorFromAngle(angle) * this.viewDistance;
+            }
+
             vertices[vertexIndex] = vertex;
 
             if (i > 0)

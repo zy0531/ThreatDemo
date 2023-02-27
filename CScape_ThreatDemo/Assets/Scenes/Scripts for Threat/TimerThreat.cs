@@ -47,9 +47,9 @@ public class TimerThreat : MonoBehaviour
         float minutes = Mathf.FloorToInt(UsedTime / 60);
         float seconds = Mathf.FloorToInt(UsedTime % 60);
 
-        TimerTxt.text = string.Format("{0:00}:{1:00}", minutes, seconds)
-            + "\n UsedTime:" + ColorGlobal.UsedTime
-            + "\n UsedTimeInRed:" + ColorGlobal.UsedTimeInRed
-            + "\n UsedTimeInYellow:" + ColorGlobal.UsedTimeInYellow;
+        TimerTxt.text = "Time: " + string.Format("{0:00}:{1:00}", minutes, seconds);
+            //+ "\n UsedTime:" + ColorGlobal.UsedTime
+            //+ "\n UsedTimeInRed:" + ColorGlobal.UsedTimeInRed
+            //+ "\n UsedTimeInYellow:" + ColorGlobal.UsedTimeInYellow;
     }
 }
