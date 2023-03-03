@@ -56,6 +56,7 @@ public class RouteManager : MonoBehaviour
 
     [SerializeField] CueManager cueManager;
     [SerializeField] DataManager dataManager;
+    [SerializeField] TimerThreat timer;
 
     string Path;
     string FileName;
@@ -67,7 +68,7 @@ public class RouteManager : MonoBehaviour
         Debug.Log("Routes.Count: " + Routes.Count);
 
         // Disable All Routes
-        for (int i = 1; i < Routes.Count; i++)
+        for (int i = 0; i < Routes.Count; i++)
         {
             Routes[i].startPosition.transform.parent.gameObject.SetActive(false);
         }
@@ -103,14 +104,25 @@ public class RouteManager : MonoBehaviour
 
     void Update()
     {
+        // if teleport to the staring position by clicking the trigger button -> activate route[0]
+        if(ColorGlobal.FirstTrial)
+        {
+            Routes[0].startPosition.transform.parent.gameObject.SetActive(true);
+            ColorGlobal.FirstTrial = false;
+            // Disable Movement Control
+            ColorGlobal.IsMovement = false;
+        }
+            
+        
         if (currentRoute_name != ColorGlobal.CurrentRoute)
         {
             //Record Data
-            if (currentRoute_num > 0)
+            if (currentRoute_num > 0 && currentRoute_num < Routes.Count)
             {
                 // float point = 100f - ColorGlobal.UsedTime / 60f * 1f - ColorGlobal.UsedTimeInRed * 3f - ColorGlobal.UsedTimeInYellow * 1f;
                 float point = ColorGlobal.Point;
                 ColorGlobal.Point_TrialEnd = point;
+
                 RecordData.SaveData(Path, FileName,
                       DateTime.Now.ToString() + ";"
                     + currentRoute_name.ToString() + ";"
@@ -156,9 +168,13 @@ public class RouteManager : MonoBehaviour
                 if (route.ActivateTextCue) cueManager.InactivateTextCue();
 
                 // Reset Timer
+                timer.SetTimerOff();
                 ColorGlobal.UsedTimeInRed = 0;
                 ColorGlobal.UsedTimeInYellow = 0;
                 ColorGlobal.UsedTime = 0;
+
+                // Disable Movement Control
+                ColorGlobal.IsMovement = false;
 
                 // Do not reset Point
 
@@ -171,32 +187,34 @@ public class RouteManager : MonoBehaviour
                 // Activate Selected Cue
                 if (route.ActivateFOVCue)
                 {
+                    Debug.Log("ActivateFOVCue");
                     cueManager.InitializeFOVCue(route.level, route.ThreatTransform, route.Red_FOV, route.Red_ViewDis, route.Yellow_FOV, route.Yellow_ViewDis, route.Green_FOV, route.Green_ViewDis);
                 }
                 if (route.ActivateLaserCue)
                 {
+                    Debug.Log("ActivateLaserCue");
                     cueManager.InitializeLaserCue(route.ThreatTransform, route.Red_FOV, route.Red_ViewDis);
                 }
                 if (route.ActivateHighlightCue)
                 {
+                    Debug.Log("ActivateHighlightCue");
                     cueManager.InitializeHighlightCue(route.ThreatTransform, route.ThreatBuilding);
                 }
                 if (route.ActivateTextCue)
                 {
+                    Debug.Log("ActivateTextCue");
                     cueManager.InitializeTextCue(route.ThreatTransform);
                 }
+
+                // Update currentRoute info;
+                currentRoute_num++;
+                currentRoute_name = ColorGlobal.CurrentRoute;
             }
             else
             {
                 Debug.Log("End of Routes (RouteManager) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                 StartCoroutine(Quit.WaitQuit(5));
             }
-
-            
-
-            // Update currentRoute info;
-            currentRoute_num++;
-            currentRoute_name = ColorGlobal.CurrentRoute;
         }
     }
 

@@ -75,15 +75,18 @@ public class Locomotion : MonoBehaviour
     // ******************* using Rigidbody to locomote to avoid going through the walls ******************* //
     void FixedUpdate()
     {
-        Debug.DrawLine(bodyTracker.position, bodyTracker.position + bodyTracker.forward);
+        //Debug.DrawLine(bodyTracker.position, bodyTracker.position + bodyTracker.forward);
         if (device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxisTouch, out ButtonState) && ButtonState) // using joystick
         {
-            //Body-based steering (Body rotation is tracked by a Vive Tracker)
-            //rigidbody.velocity = ProjectToXZPlane(bodyTracker.up) * moveSpeed;
-            rigidbody.velocity = ProjectToXZPlane(bodyTracker.forward) * moveSpeed;
-            
-            //Joystick-based steering (rotation is determined by the controller)
-            //rigidbody.velocity = ProjectToXZPlane(this.transform.forward) * moveSpeed;
+            if(ColorGlobal.IsMovement)
+            {
+                //Body-based steering (Body rotation is tracked by a Vive Tracker)
+                //rigidbody.velocity = ProjectToXZPlane(bodyTracker.up) * moveSpeed;
+                rigidbody.velocity = ProjectToXZPlane(bodyTracker.forward) * moveSpeed;
+
+                //Joystick-based steering (rotation is determined by the controller)
+                //rigidbody.velocity = ProjectToXZPlane(this.transform.forward) * moveSpeed;
+            }
         }
     }
 

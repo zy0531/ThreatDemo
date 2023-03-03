@@ -83,10 +83,11 @@ public class TeleportToStartPosition : MonoBehaviour
             // Button is released
             Debug.Log("buttonDown_XRInput is released");
 
-            if (!hasStarted)
+            if (!hasStarted && ColorGlobal.IsPractice)
             {
                 xrRig.transform.position = startPosition_Threat.position;
                 hasStarted = true;
+                ColorGlobal.FirstTrial = hasStarted;
                 // timer.SetTimerOff();
                 timerThreat.SetTimerOn();
                 pointText.SetPointOn();

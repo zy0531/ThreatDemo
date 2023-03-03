@@ -16,4 +16,9 @@ public static class ColorGlobal
 
     public static float Point = 0;
     public static float Point_TrialEnd = 0;
+
+    public static bool IsMovement = false;
+
+    public static bool IsPractice = false;
+    public static bool FirstTrial = false;
 }

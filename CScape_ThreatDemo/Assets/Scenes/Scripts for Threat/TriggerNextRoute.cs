@@ -26,7 +26,7 @@ public class TriggerNextRoute : MonoBehaviour
         {
             //Debug.Log("CurrentRoute Trigger Name " + this.transform.parent.gameObject.name);
             ColorGlobal.CurrentRoute = this.transform.parent.gameObject.name;
-            StartNavigationAudio.PlayDelayed(2);
+            //StartNavigationAudio.PlayDelayed(2);
         }
     }
 

@@ -24,6 +24,13 @@ public class TimerThreat : MonoBehaviour
             ColorGlobal.UsedTime += Time.deltaTime;
             UpdateTimerTxt(ColorGlobal.UsedTime);
         }
+        if (!TimerOn && Input.GetKeyDown(KeyCode.T))
+        {
+            // Set timer On
+            SetTimerOn();
+            // Enable Movement Control
+            ColorGlobal.IsMovement = true;
+        }
     }
 
     public void SetTimerOn()
