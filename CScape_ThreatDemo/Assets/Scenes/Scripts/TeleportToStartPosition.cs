@@ -10,6 +10,7 @@ public class TeleportToStartPosition : MonoBehaviour
 {
     [SerializeField] Transform startPosition_Threat;
     [SerializeField] GameObject xrRig;
+    [SerializeField] GameObject PracticeArea;
     //[SerializeField] Timer timer;
     //[SerializeField] AudioSource StartNavigationAudio;
     [SerializeField] TimerThreat timerThreat;
@@ -86,6 +87,7 @@ public class TeleportToStartPosition : MonoBehaviour
             if (!hasStarted && ColorGlobal.IsPractice)
             {
                 xrRig.transform.position = startPosition_Threat.position;
+                PracticeArea.SetActive(false);
                 hasStarted = true;
                 ColorGlobal.FirstTrial = hasStarted;
                 // timer.SetTimerOff();
@@ -94,11 +96,6 @@ public class TeleportToStartPosition : MonoBehaviour
                 distanceThreat.SetDistanceOn();
 
                 // StartNavigationAudio.PlayDelayed(2);
-
-
-                //RecordData.SaveData(Path, FileName,
-                //        "Exploration Start Time: " + DateTime.Now.ToString()
-                //        + '\n');
             }
             buttonDown_XRInput = false;
         }

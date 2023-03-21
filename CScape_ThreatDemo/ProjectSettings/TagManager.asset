@@ -17,6 +17,7 @@ TagManager:
   - Red
   - Yellow
   - Green
+  - See Through Camera
   layers:
   - Default
   - TransparentFX

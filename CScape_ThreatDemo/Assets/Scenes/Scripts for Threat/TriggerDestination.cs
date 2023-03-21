@@ -39,6 +39,7 @@ public class TriggerDestination : MonoBehaviour
             {
                 var next_route = route.parent.GetChild(index + 1).gameObject;
                 next_route.SetActive(true);
+                route.gameObject.SetActive(false);
                 ColorGlobal.CurrentRoute = next_route.name;
             }
             else
@@ -54,12 +55,12 @@ public class TriggerDestination : MonoBehaviour
         }
     }
 
-    void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            // Disable the Current Segment of Route
-            this.transform.parent.gameObject.SetActive(false);
-        }
-    }
+    //void OnTriggerStay(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        // Disable the Current Segment of Route
+    //        this.transform.parent.gameObject.SetActive(false);
+    //    }
+    //}
 }

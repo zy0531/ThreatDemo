@@ -30,12 +30,12 @@ public class TriggerNextRoute : MonoBehaviour
         }
     }
 
-    void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            //Debug.Log("CurrentRoute Trigger Name " + this.transform.parent.gameObject.name);
-            ColorGlobal.CurrentRoute = this.transform.parent.gameObject.name;
-        }
-    }
+    //void OnTriggerStay(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        //Debug.Log("CurrentRoute Trigger Name " + this.transform.parent.gameObject.name);
+    //        ColorGlobal.CurrentRoute = this.transform.parent.gameObject.name;
+    //    }
+    //}
 }
