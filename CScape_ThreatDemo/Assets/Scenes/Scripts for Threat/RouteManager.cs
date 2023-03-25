@@ -79,7 +79,7 @@ public class RouteManager : MonoBehaviour
         RecordData.SaveData(Path, FileName,
           "Time" + ";"
         + "RouteName" + ";"
-        + "RoutenNumber" + ";"
+        + "RouteNumber" + ";"
         + "StartPosition" + ";"
         + "ThreatPosition" + ";"
         + "ThreatOrientation(quaternion)" + ";"
@@ -117,7 +117,7 @@ public class RouteManager : MonoBehaviour
         if (currentRoute_name != ColorGlobal.CurrentRoute)
         {
             //Record Data
-            if (currentRoute_num > 0 && currentRoute_num < Routes.Count)
+            if (currentRoute_num > 0 && currentRoute_num <= Routes.Count)
             {
                 // float point = 100f - ColorGlobal.UsedTime / 60f * 1f - ColorGlobal.UsedTimeInRed * 3f - ColorGlobal.UsedTimeInYellow * 1f;
                 float point = ColorGlobal.Point;
@@ -158,6 +158,7 @@ public class RouteManager : MonoBehaviour
                 Debug.Log("point: ********** " + point);
             }
             //Record Data End
+
 
             if (currentRoute_num < Routes.Count)
             {
@@ -218,6 +219,26 @@ public class RouteManager : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+        //Record Trajectory Data
+        if (currentRoute_num > 0 && currentRoute_num <= Routes.Count)
+        {
+            if (ColorGlobal.IsMovement)
+            {
+                RecordData.SaveData(Path, FileName,
+                  Time.fixedTime.ToString() + ";" // The time since the last FixedUpdate started (Read Only). This is the time in seconds since the start of the game.
+                + currentRoute_name.ToString() + ";"
+                + currentRoute_num.ToString() + ";"
+                + Camera.main.transform.position + ";"
+                + Camera.main.transform.forward + ";"
+                + Camera.main.transform.rotation + ";"
+                + Camera.main.transform.eulerAngles + ";"
+                + '\n');
+            }
+        }
+        //Record Trajectory Data End
+    }
 
     void SetTriggerZone(Threat route)
     {
