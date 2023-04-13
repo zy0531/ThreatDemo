@@ -148,9 +148,36 @@ public class RouteManager : MonoBehaviour
                     + ColorGlobal.UsedTimeInYellow.ToString("f3") + ";"
                     + point.ToString("f3")
                     + '\n');
-                
+
+                // record summary data in a separate file
+                RecordData.SaveData(Path, "Summary",
+                      DateTime.Now.ToString() + ";"
+                    + currentRoute_name.ToString() + ";"
+                    + currentRoute_num.ToString() + ";"
+                    + route.startPosition.position.ToString() + ";"
+                    + route.ThreatTransform.position.ToString() + ";"
+                    + route.ThreatTransform.rotation.ToString() + ";"
+                    + route.ThreatTransform.eulerAngles.ToString() + ";"
+                    + route.endPosition.position.ToString() + ";"
+                    + route.level + ";"
+                    + route.Red_ViewDis + ";"
+                    + route.Red_FOV + ";"
+                    + route.Yellow_ViewDis + ";"
+                    + route.Yellow_FOV + ";"
+                    + route.Green_ViewDis + ";"
+                    + route.Green_FOV + ";"
+                    + route.ActivateFOVCue + ";"
+                    + route.ActivateLaserCue + ";"
+                    + route.ActivateHighlightCue + ";"
+                    + route.ActivateTextCue + ";"
+                    + ColorGlobal.UsedTime.ToString("f3") + ";"
+                    + ColorGlobal.UsedTimeInRed.ToString("f3") + ";"
+                    + ColorGlobal.UsedTimeInYellow.ToString("f3") + ";"
+                    + point.ToString("f3")
+                    + '\n');
+
                 Debug.Log("currentRoute_name: ********** " + currentRoute_name);
-                // Debug.Log("ColorGlobal.CurrentRoute: **********" + ColorGlobal.CurrentRoute);
+                Debug.Log("ColorGlobal.CurrentRoute: **********" + ColorGlobal.CurrentRoute);
                 Debug.Log("currentRoute_num: **********" + currentRoute_num);
                 Debug.Log("ColorGlobal.UsedTime: ********** " + ColorGlobal.UsedTime);
                 Debug.Log("ColorGlobal.UsedTimeInRed: ********** " + ColorGlobal.UsedTimeInRed);
@@ -214,7 +241,7 @@ public class RouteManager : MonoBehaviour
             else
             {
                 Debug.Log("End of Routes (RouteManager) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                StartCoroutine(Quit.WaitQuit(5));
+                StartCoroutine(Quit.WaitQuit(0));
             }
         }
     }
@@ -227,6 +254,17 @@ public class RouteManager : MonoBehaviour
             if (ColorGlobal.IsMovement)
             {
                 RecordData.SaveData(Path, FileName,
+                  Time.fixedTime.ToString() + ";" // The time since the last FixedUpdate started (Read Only). This is the time in seconds since the start of the game.
+                + currentRoute_name.ToString() + ";"
+                + currentRoute_num.ToString() + ";"
+                + Camera.main.transform.position + ";"
+                + Camera.main.transform.forward + ";"
+                + Camera.main.transform.rotation + ";"
+                + Camera.main.transform.eulerAngles + ";"
+                + '\n');
+
+                // record trajectory data in a separate file
+                RecordData.SaveData(Path, "TrajectoryData",
                   Time.fixedTime.ToString() + ";" // The time since the last FixedUpdate started (Read Only). This is the time in seconds since the start of the game.
                 + currentRoute_name.ToString() + ";"
                 + currentRoute_num.ToString() + ";"
