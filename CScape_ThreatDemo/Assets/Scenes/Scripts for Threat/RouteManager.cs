@@ -76,7 +76,8 @@ public class RouteManager : MonoBehaviour
         // Record Data
         Path = dataManager.folderPath;
         FileName = dataManager.fileName;
-        RecordData.SaveData(Path, FileName,
+        
+        RecordData.SaveData(Path, "Summary",
           "Time" + ";"
         + "RouteName" + ";"
         + "RouteNumber" + ";"
