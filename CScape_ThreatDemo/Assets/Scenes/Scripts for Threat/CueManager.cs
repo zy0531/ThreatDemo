@@ -30,6 +30,11 @@ public class CueManager : MonoBehaviour
     //[SerializeField] public bool ActivateTextCue;
     [SerializeField] GameObject TextCue;
 
+    /// <summary>
+    /// Screen Tint Cue
+    /// </summary>
+    [SerializeField] GameObject ScreenTintCue;
+
 
     // Start is called before the first frame update
     void Start()
@@ -192,5 +197,20 @@ public class CueManager : MonoBehaviour
     public void InactivateTextCue()
     {
         TextCue.SetActive(false);
+    }
+
+
+
+    /// <summary>
+    /// ScreenTintCue
+    /// </summary>
+    public void InitializeScreenTintCue()
+    {
+        ScreenTintCue.SetActive(true);
+    }
+
+    public void InactivateScreenTintCue()
+    {
+        ScreenTintCue.SetActive(false);
     }
 }

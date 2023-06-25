@@ -14,6 +14,7 @@ public class TeleportToStartPosition : MonoBehaviour
     //[SerializeField] Timer timer;
     //[SerializeField] AudioSource StartNavigationAudio;
     [SerializeField] TimerThreat timerThreat;
+    [SerializeField] TrialText trialText;
     [SerializeField] PointText pointText;
     [SerializeField] ChangeTextColor distanceThreat;
 
@@ -90,8 +91,8 @@ public class TeleportToStartPosition : MonoBehaviour
                 PracticeArea.SetActive(false);
                 hasStarted = true;
                 ColorGlobal.FirstTrial = hasStarted;
-                // timer.SetTimerOff();
                 timerThreat.SetTimerOn();
+                trialText.SetTrialOn();
                 pointText.SetPointOn();
                 distanceThreat.SetDistanceOn();
 

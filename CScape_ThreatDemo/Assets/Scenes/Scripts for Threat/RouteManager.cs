@@ -33,7 +33,8 @@ public struct Threat
     public bool ActivateHighlightCue;
     public bool ActivateTextCue;
     public bool ActivateLaserCue;
-    
+    public bool ActivateScreenTintCue;
+
     /// <summary>
     /// Route Position Information
     /// </summary>
@@ -78,28 +79,29 @@ public class RouteManager : MonoBehaviour
         FileName = dataManager.fileName;
         
         RecordData.SaveData(Path, "Summary",
-          "Time" + ";"
-        + "RouteName" + ";"
-        + "RouteNumber" + ";"
-        + "StartPosition" + ";"
-        + "ThreatPosition" + ";"
-        + "ThreatOrientation(quaternion)" + ";"
-        + "ThreatOrientation(eulerAngles)" + ";"
-        + "EndPosition" + ";"
-        + "Level" + ";"
-        + "Red_ViewDis" + ";"
-        + "Red_FOV" + ";"
-        + "Yellow_ViewDis" + ";"
-        + "Yellow_FOV" + ";"
-        + "Green_ViewDis" + ";"
-        + "Green_FOV" + ";"
-        + "FOVCue" + ";"
-        + "LaserCue" + ";"
-        + "HighlightCue" + ";"
-        + "TextCue" + ";"
-        + "UsedTime" + ";"
-        + "UsedTimeInRed" + ";"
-        + "UsedTimeInYellow" + ";"
+          "Time" + ","
+        + "RouteName" + ","
+        + "RouteNumber" + ","
+        + "StartPosition" + ","
+        + "ThreatPosition" + ","
+        + "ThreatOrientation(quaternion)" + ","
+        + "ThreatOrientation(eulerAngles)" + ","
+        + "EndPosition" + ","
+        + "Level" + ","
+        + "Red_ViewDis" + ","
+        + "Red_FOV" + ","
+        + "Yellow_ViewDis" + ","
+        + "Yellow_FOV" + ","
+        + "Green_ViewDis" + ","
+        + "Green_FOV" + ","
+        + "FOVCue" + ","
+        + "LaserCue" + ","
+        + "HighlightCue" + ","
+        + "TextCue" + ","
+        + "ScreenTintCue" + ","
+        + "UsedTime" + ","
+        + "UsedTimeInRed" + ","
+        + "UsedTimeInYellow" + ","
         + "Point" + '\n');
     }
 
@@ -122,58 +124,63 @@ public class RouteManager : MonoBehaviour
             {
                 // float point = 100f - ColorGlobal.UsedTime / 60f * 1f - ColorGlobal.UsedTimeInRed * 3f - ColorGlobal.UsedTimeInYellow * 1f;
                 float point = ColorGlobal.Point;
+                // add bonus points
+                point += AddBonusPoints(ColorGlobal.UsedTime);
+
                 ColorGlobal.Point_TrialEnd = point;
 
                 RecordData.SaveData(Path, FileName,
-                      DateTime.Now.ToString() + ";"
-                    + currentRoute_name.ToString() + ";"
-                    + currentRoute_num.ToString() + ";"
-                    + route.startPosition.position.ToString() + ";"
-                    + route.ThreatTransform.position.ToString() + ";"
-                    + route.ThreatTransform.rotation.ToString() + ";"
-                    + route.ThreatTransform.eulerAngles.ToString() + ";"
-                    + route.endPosition.position.ToString() + ";"
-                    + route.level + ";"
-                    + route.Red_ViewDis + ";"
-                    + route.Red_FOV + ";"
-                    + route.Yellow_ViewDis + ";"
-                    + route.Yellow_FOV + ";"
-                    + route.Green_ViewDis + ";"
-                    + route.Green_FOV + ";"
-                    + route.ActivateFOVCue + ";"
-                    + route.ActivateLaserCue + ";"
-                    + route.ActivateHighlightCue + ";"
-                    + route.ActivateTextCue + ";"
-                    + ColorGlobal.UsedTime.ToString("f3") + ";"
-                    + ColorGlobal.UsedTimeInRed.ToString("f3") + ";"
-                    + ColorGlobal.UsedTimeInYellow.ToString("f3") + ";"
+                      DateTime.Now.ToString() + ","
+                    + currentRoute_name.ToString() + ","
+                    + currentRoute_num.ToString() + ","
+                    + route.startPosition.position.ToString() + ","
+                    + route.ThreatTransform.position.ToString() + ","
+                    + route.ThreatTransform.rotation.ToString() + ","
+                    + route.ThreatTransform.eulerAngles.ToString() + ","
+                    + route.endPosition.position.ToString() + ","
+                    + route.level + ","
+                    + route.Red_ViewDis + ","
+                    + route.Red_FOV + ","
+                    + route.Yellow_ViewDis + ","
+                    + route.Yellow_FOV + ","
+                    + route.Green_ViewDis + ","
+                    + route.Green_FOV + ","
+                    + route.ActivateFOVCue + ","
+                    + route.ActivateLaserCue + ","
+                    + route.ActivateHighlightCue + ","
+                    + route.ActivateTextCue + ","
+                    + route.ActivateScreenTintCue +","
+                    + ColorGlobal.UsedTime.ToString("f3") + ","
+                    + ColorGlobal.UsedTimeInRed.ToString("f3") + ","
+                    + ColorGlobal.UsedTimeInYellow.ToString("f3") + ","
                     + point.ToString("f3")
                     + '\n');
 
                 // record summary data in a separate file
                 RecordData.SaveData(Path, "Summary",
-                      DateTime.Now.ToString() + ";"
-                    + currentRoute_name.ToString() + ";"
-                    + currentRoute_num.ToString() + ";"
-                    + route.startPosition.position.ToString() + ";"
-                    + route.ThreatTransform.position.ToString() + ";"
-                    + route.ThreatTransform.rotation.ToString() + ";"
-                    + route.ThreatTransform.eulerAngles.ToString() + ";"
-                    + route.endPosition.position.ToString() + ";"
-                    + route.level + ";"
-                    + route.Red_ViewDis + ";"
-                    + route.Red_FOV + ";"
-                    + route.Yellow_ViewDis + ";"
-                    + route.Yellow_FOV + ";"
-                    + route.Green_ViewDis + ";"
-                    + route.Green_FOV + ";"
-                    + route.ActivateFOVCue + ";"
-                    + route.ActivateLaserCue + ";"
-                    + route.ActivateHighlightCue + ";"
-                    + route.ActivateTextCue + ";"
-                    + ColorGlobal.UsedTime.ToString("f3") + ";"
-                    + ColorGlobal.UsedTimeInRed.ToString("f3") + ";"
-                    + ColorGlobal.UsedTimeInYellow.ToString("f3") + ";"
+                      DateTime.Now.ToString() + ","
+                    + currentRoute_name.ToString() + ","
+                    + currentRoute_num.ToString() + ","
+                    + route.startPosition.position.ToString() + ","
+                    + route.ThreatTransform.position.ToString() + ","
+                    + route.ThreatTransform.rotation.ToString() + ","
+                    + route.ThreatTransform.eulerAngles.ToString() + ","
+                    + route.endPosition.position.ToString() + ","
+                    + route.level + ","
+                    + route.Red_ViewDis + ","
+                    + route.Red_FOV + ","
+                    + route.Yellow_ViewDis + ","
+                    + route.Yellow_FOV + ","
+                    + route.Green_ViewDis + ","
+                    + route.Green_FOV + ","
+                    + route.ActivateFOVCue + ","
+                    + route.ActivateLaserCue + ","
+                    + route.ActivateHighlightCue + ","
+                    + route.ActivateTextCue + ","
+                    + route.ActivateScreenTintCue + ","
+                    + ColorGlobal.UsedTime.ToString("f3") + ","
+                    + ColorGlobal.UsedTimeInRed.ToString("f3") + ","
+                    + ColorGlobal.UsedTimeInYellow.ToString("f3") + ","
                     + point.ToString("f3")
                     + '\n');
 
@@ -195,6 +202,7 @@ public class RouteManager : MonoBehaviour
                 if (route.ActivateLaserCue) cueManager.InactivateLaserCue();
                 if (route.ActivateHighlightCue) cueManager.InactivateHighlightCue();
                 if (route.ActivateTextCue) cueManager.InactivateTextCue();
+                if (route.ActivateScreenTintCue) cueManager.InactivateScreenTintCue();
 
                 // Reset Timer
                 timer.SetTimerOff();
@@ -234,10 +242,18 @@ public class RouteManager : MonoBehaviour
                     Debug.Log("ActivateTextCue");
                     cueManager.InitializeTextCue(route.ThreatTransform);
                 }
+                if(route.ActivateScreenTintCue)
+                {
+                    Debug.Log("ActivateScreenTintCue");
+                    cueManager.InitializeScreenTintCue();
+                }
 
                 // Update currentRoute info;
                 currentRoute_num++;
                 currentRoute_name = ColorGlobal.CurrentRoute;
+
+                // Update Trial Number;
+                ColorGlobal.trial = currentRoute_num;
             }
             else
             {
@@ -255,24 +271,24 @@ public class RouteManager : MonoBehaviour
             if (ColorGlobal.IsMovement)
             {
                 RecordData.SaveData(Path, FileName,
-                  Time.fixedTime.ToString() + ";" // The time since the last FixedUpdate started (Read Only). This is the time in seconds since the start of the game.
-                + currentRoute_name.ToString() + ";"
-                + currentRoute_num.ToString() + ";"
-                + Camera.main.transform.position + ";"
-                + Camera.main.transform.forward + ";"
-                + Camera.main.transform.rotation + ";"
-                + Camera.main.transform.eulerAngles + ";"
+                  Time.fixedTime.ToString() + "," // The time since the last FixedUpdate started (Read Only). This is the time in seconds since the start of the game.
+                + currentRoute_name.ToString() + ","
+                + currentRoute_num.ToString() + ","
+                + Camera.main.transform.position + ","
+                + Camera.main.transform.forward + ","
+                + Camera.main.transform.rotation + ","
+                + Camera.main.transform.eulerAngles + ","
                 + '\n');
 
                 // record trajectory data in a separate file
                 RecordData.SaveData(Path, "TrajectoryData",
-                  Time.fixedTime.ToString() + ";" // The time since the last FixedUpdate started (Read Only). This is the time in seconds since the start of the game.
-                + currentRoute_name.ToString() + ";"
-                + currentRoute_num.ToString() + ";"
-                + Camera.main.transform.position + ";"
-                + Camera.main.transform.forward + ";"
-                + Camera.main.transform.rotation + ";"
-                + Camera.main.transform.eulerAngles + ";"
+                  Time.fixedTime.ToString() + "," // The time since the last FixedUpdate started (Read Only). This is the time in seconds since the start of the game.
+                + currentRoute_name.ToString() + ","
+                + currentRoute_num.ToString() + ","
+                + Camera.main.transform.position + ","
+                + Camera.main.transform.forward + ","
+                + Camera.main.transform.rotation + ","
+                + Camera.main.transform.eulerAngles + ","
                 + '\n');
             }
         }
@@ -344,6 +360,27 @@ public class RouteManager : MonoBehaviour
 
         }
         /// ********** Initialize Trigger Zone End ********** ///
+    }
+
+
+    // Adding Bonus points
+    float AddBonusPoints(float usedTime)
+    {
+        // if under 50s
+        if (usedTime <= 50f)
+        {
+            return 25f + (50f - usedTime) * 4f;
+        }
+        // else if under 60s (i.e., 50-60s)
+        else if (usedTime <= 60f)
+        {
+            return (60f - usedTime) * 2.5f;
+        }
+        // else over 60s
+        else
+        {
+            return 0f;
+        }
     }
 }
 
