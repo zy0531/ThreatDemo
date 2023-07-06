@@ -64,6 +64,25 @@ public class TeleportToStartPosition : MonoBehaviour
     void Update()
     {
 
+        // add "S" to control to teleport to the start position
+        // Experiment Start
+        if (Input.GetKeyUp("space"))
+        {
+            if (!hasStarted && ColorGlobal.IsPractice)
+            {
+                xrRig.transform.position = startPosition_Threat.position;
+                PracticeArea.SetActive(false);
+                hasStarted = true;
+                ColorGlobal.FirstTrial = hasStarted;
+                timerThreat.SetTimerOn();
+                trialText.SetTrialOn();
+                pointText.SetPointOn();
+                distanceThreat.SetDistanceOn();
+            }
+        }
+        // end
+
+
         if (device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out triggerValue) && triggerValue)
         {
             //Debug.Log("Trigger button is pressed.");
@@ -85,6 +104,7 @@ public class TeleportToStartPosition : MonoBehaviour
             // Button is released
             Debug.Log("buttonDown_XRInput is released");
 
+            // Experiment Start
             if (!hasStarted && ColorGlobal.IsPractice)
             {
                 xrRig.transform.position = startPosition_Threat.position;
