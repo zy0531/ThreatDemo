@@ -312,10 +312,10 @@ public class EyeTrackingExample : MonoBehaviour
             gazeTarget.transform.LookAt(rayOrigin, Vector3.up);
             gazeTarget.transform.localScale = Vector3.one * floatingGazeTargetDistance;
 
-            //add
+            // * add *
             hitGameObjectName = "None";
             hitPoint = new Vector3(0, 0, 0);
-            //add
+            // * add *
         }
 
         if (Input.GetKeyDown(loggingToggleKey))

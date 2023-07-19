@@ -19,45 +19,53 @@ public class PointText : MonoBehaviour
     {
         if (PointOn)
         {
-            // Point system
-            if (ColorGlobal.UsedTime < 50f)
-                ColorGlobal.Point = ColorGlobal.Point_TrialEnd
-                    // points based on total spent time
-                    + ColorGlobal.UsedTime * 2f
-                    // points based on time in each zone
-                    + (ColorGlobal.UsedTime - ColorGlobal.UsedTimeInRed - ColorGlobal.UsedTimeInYellow) * 1f
-                    - ColorGlobal.UsedTimeInYellow * 1f
-                    - ColorGlobal.UsedTimeInRed * 3f;
-            else if (ColorGlobal.UsedTime < 60f)
-                ColorGlobal.Point = ColorGlobal.Point_TrialEnd
-                    // points based on total spent time
-                    + 50f * 2f
-                    + (ColorGlobal.UsedTime - 50f) * 2f
-                    // points based on time in each zone
-                    + (ColorGlobal.UsedTime - ColorGlobal.UsedTimeInRed - ColorGlobal.UsedTimeInYellow) * 1f
-                    - ColorGlobal.UsedTimeInYellow * 1f
-                    - ColorGlobal.UsedTimeInRed * 3f;
-            else if (ColorGlobal.UsedTime < 70f)
-                ColorGlobal.Point = ColorGlobal.Point_TrialEnd
-                    // points based on total spent time
-                    + 50f * 2f
-                    + (60f - 50f) * 2f
-                    - (ColorGlobal.UsedTime - 60f) * 1f
-                    // points based on time in each zone
-                    + (ColorGlobal.UsedTime - ColorGlobal.UsedTimeInRed - ColorGlobal.UsedTimeInYellow) * 1f
-                    - ColorGlobal.UsedTimeInYellow * 1f
-                    - ColorGlobal.UsedTimeInRed * 3f;
-            else // spend more than 70s
-                ColorGlobal.Point = ColorGlobal.Point_TrialEnd
-                   // points based on total spent time
-                   + 50f * 2f
-                   + (60f - 50f) * 2f
-                   - (70f - 60f) * 1f
-                   - (ColorGlobal.UsedTime - 70f) * 2f
-                   // points based on time in each zone
-                   + (ColorGlobal.UsedTime - ColorGlobal.UsedTimeInRed - ColorGlobal.UsedTimeInYellow) * 1f
-                   - ColorGlobal.UsedTimeInYellow * 1f
-                   - ColorGlobal.UsedTimeInRed * 3f;
+            // New Point System (based on time)
+            ColorGlobal.Point = ColorGlobal.Point_TrialEnd
+                                + ColorGlobal.UsedTime
+                                // add 5 seconds added to their total time for each second they remain in RED zone
+                                + ColorGlobal.UsedTimeInRed * 5f
+                                // add 3 seconds added to their total time for each second they remain in YELLOW zone
+                                + ColorGlobal.UsedTimeInYellow * 3f;
+
+            //// Point system (Obsolete)
+            //if (ColorGlobal.UsedTime < 50f)
+            //    ColorGlobal.Point = ColorGlobal.Point_TrialEnd
+            //        // points based on total spent time
+            //        + ColorGlobal.UsedTime * 2f
+            //        // points based on time in each zone
+            //        + (ColorGlobal.UsedTime - ColorGlobal.UsedTimeInRed - ColorGlobal.UsedTimeInYellow) * 1f
+            //        - ColorGlobal.UsedTimeInYellow * 1f
+            //        - ColorGlobal.UsedTimeInRed * 3f;
+            //else if (ColorGlobal.UsedTime < 60f)
+            //    ColorGlobal.Point = ColorGlobal.Point_TrialEnd
+            //        // points based on total spent time
+            //        + 50f * 2f
+            //        + (ColorGlobal.UsedTime - 50f) * 2f
+            //        // points based on time in each zone
+            //        + (ColorGlobal.UsedTime - ColorGlobal.UsedTimeInRed - ColorGlobal.UsedTimeInYellow) * 1f
+            //        - ColorGlobal.UsedTimeInYellow * 1f
+            //        - ColorGlobal.UsedTimeInRed * 3f;
+            //else if (ColorGlobal.UsedTime < 70f)
+            //    ColorGlobal.Point = ColorGlobal.Point_TrialEnd
+            //        // points based on total spent time
+            //        + 50f * 2f
+            //        + (60f - 50f) * 2f
+            //        - (ColorGlobal.UsedTime - 60f) * 1f
+            //        // points based on time in each zone
+            //        + (ColorGlobal.UsedTime - ColorGlobal.UsedTimeInRed - ColorGlobal.UsedTimeInYellow) * 1f
+            //        - ColorGlobal.UsedTimeInYellow * 1f
+            //        - ColorGlobal.UsedTimeInRed * 3f;
+            //else // spend more than 70s
+            //    ColorGlobal.Point = ColorGlobal.Point_TrialEnd
+            //       // points based on total spent time
+            //       + 50f * 2f
+            //       + (60f - 50f) * 2f
+            //       - (70f - 60f) * 1f
+            //       - (ColorGlobal.UsedTime - 70f) * 2f
+            //       // points based on time in each zone
+            //       + (ColorGlobal.UsedTime - ColorGlobal.UsedTimeInRed - ColorGlobal.UsedTimeInYellow) * 1f
+            //       - ColorGlobal.UsedTimeInYellow * 1f
+            //       - ColorGlobal.UsedTimeInRed * 3f;
 
             UpdatePointTxt(ColorGlobal.Point);
         }
@@ -80,6 +88,6 @@ public class PointText : MonoBehaviour
 
     private void UpdatePointTxt(float Point)
     {
-        PointTxt.text = "Points: " + Point.ToString("f0");
+        PointTxt.text = "Total Time: " + Point.ToString("f0");
     }
 }

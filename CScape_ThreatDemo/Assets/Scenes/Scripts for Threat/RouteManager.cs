@@ -133,10 +133,7 @@ public class RouteManager : MonoBehaviour
             //Record Data
             if (currentRoute_num > 0 && currentRoute_num <= Routes.Count)
             {
-                // float point = 100f - ColorGlobal.UsedTime / 60f * 1f - ColorGlobal.UsedTimeInRed * 3f - ColorGlobal.UsedTimeInYellow * 1f;
                 float point = ColorGlobal.Point;
-                // add bonus points
-                point += AddBonusPoints(ColorGlobal.UsedTime);
 
                 ColorGlobal.Point_TrialEnd = point;
 
@@ -337,7 +334,7 @@ public class RouteManager : MonoBehaviour
     }
 
 
-    // Adding Bonus points
+    // Adding Bonus points (Obsolete)
     float AddBonusPoints(float usedTime)
     {
         // if under 50s
