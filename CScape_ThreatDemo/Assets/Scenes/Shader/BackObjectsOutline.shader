@@ -18,8 +18,8 @@ Shader "Custom/BackObjectsOutline"
             //Blend OneMinusDstAlpha DstAlpha
             //ColorMask RGB
 
-            //ZTest[unity_GUIZTestMode] // can only see thru portal & shader ZTest mode : unity_GUIZTestMode
-            ZTest Always // can only see thru portal & always show on the bottom 
+            ZTest[unity_GUIZTestMode] // can only see thru portal & shader ZTest mode : unity_GUIZTestMode
+            // ZTest Always // can only see thru portal & always show on the bottom 
             LOD 200
             ZWrite Off
             Blend OneMinusDstAlpha DstAlpha
