@@ -107,7 +107,8 @@ public class RouteManager : MonoBehaviour
 
         // record trajectory data in a separate file
         RecordData.SaveData(Path, "TrajectoryData",
-          "TimeSinceGameStart" + ";"
+          "LogTime" + ";"
+        + "TimeSinceGameStart" + ";"
         + "RouteName" + ";"
         + "RouteNumber" + ";"
         + "CameraPosition" + ";"
@@ -253,7 +254,8 @@ public class RouteManager : MonoBehaviour
             if (ColorGlobal.IsMovement)
             {
                 RecordData.SaveData(Path, "TrajectoryData",
-                  Time.fixedTime.ToString() + ";" // The time since the last FixedUpdate started (Read Only). This is the time in seconds since the start of the game.
+                (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond).ToString() + ";"
+                + Time.fixedTime.ToString() + ";" // The time since the last FixedUpdate started (Read Only). This is the time in seconds since the start of the game.
                 + currentRoute_name.ToString() + ";"
                 + currentRoute_num.ToString() + ";"
                 + Camera.main.transform.position + ";"

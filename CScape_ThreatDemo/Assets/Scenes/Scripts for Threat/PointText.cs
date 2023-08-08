@@ -88,6 +88,11 @@ public class PointText : MonoBehaviour
 
     private void UpdatePointTxt(float Point)
     {
-        PointTxt.text = "Total Time: " + Point.ToString("f0");
+        Point += 1;
+        float minutes = Mathf.FloorToInt(Point / 60);
+        float seconds = Mathf.FloorToInt(Point % 60);
+
+        PointTxt.text = "Total Time: " + string.Format("{0:00}:{1:00}", minutes, seconds);
+        // PointTxt.text = "Total Time: " + Point.ToString("f0");
     }
 }

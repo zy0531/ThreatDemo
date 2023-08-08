@@ -8,6 +8,8 @@ public class TrialText : MonoBehaviour
     [SerializeField] TMP_Text TrialTxt;
     bool TrialOn;
 
+    [SerializeField] int TotalTrials;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,7 @@ public class TrialText : MonoBehaviour
     void Update()
     {
         if(TrialOn)
-            TrialTxt.text = "Trial: " + ColorGlobal.trial + "/20";
+            TrialTxt.text = "Trial: " + ColorGlobal.trial + "/" + TotalTrials.ToString();
     }
 
     public void SetTrialOn()
