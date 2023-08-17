@@ -21,6 +21,7 @@ public static class ColorGlobal
 
     public static bool IsPractice = false;
     public static bool FirstTrial = false;
+    public static bool IsBreak = false;
 
     public static int trial = 0;
 }

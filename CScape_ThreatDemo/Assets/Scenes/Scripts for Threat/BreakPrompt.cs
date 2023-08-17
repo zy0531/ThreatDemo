@@ -8,7 +8,7 @@ public class BreakPrompt : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        BreakCanvas.SetActive(false);
     }
 
     // Update is called once per frame
@@ -16,11 +16,25 @@ public class BreakPrompt : MonoBehaviour
     {
         if (!ColorGlobal.IsMovement && ColorGlobal.trial == 13)
         {
-            BreakCanvas.SetActive(true);
+            if (!ColorGlobal.IsBreak)
+            {
+                BreakCanvas.SetActive(true);
+                ColorGlobal.IsBreak = true;
+            }
+                
         }
-        else
+        //else
+        //{
+        //    BreakCanvas.SetActive(false);
+        //}
+
+
+        if (Input.GetKeyUp(KeyCode.B))
         {
-            BreakCanvas.SetActive(false);
+            if (ColorGlobal.IsBreak)
+            {
+                BreakCanvas.SetActive(false);
+            }
         }
     }
 }
