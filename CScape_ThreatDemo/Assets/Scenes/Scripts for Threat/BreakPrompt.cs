@@ -14,7 +14,7 @@ public class BreakPrompt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!ColorGlobal.IsMovement && ColorGlobal.trial == 13)
+        if (!ColorGlobal.IsMovement && ColorGlobal.trial == 10)
         {
             if (!ColorGlobal.IsBreak)
             {
