@@ -6,7 +6,7 @@
 - HTC Vive controller x 2
 - HTC Vive tracker x1 (with a belt to tie the tracker in front of the belly of users)
 
-## Hardware
+## Software
 - Varjo Base: update to the latest version (newer than 3.5.0)
 - Unity 2020.3.20f1
 
@@ -17,6 +17,17 @@
 - Assets/Scenes/Scene for Experiments/MRMapMapDrawing.unity
 
 ## System Design
+<img src="https://github.com/zy0531/ThreatDemo/blob/main/Figures/System%20Design.png?raw=true" width="90%" height="90%">
+
+### Threat Area
+<img src="https://github.com/zy0531/ThreatDemo/blob/main/Figures/Threat%20Area%20Defination.png?raw=true" width="30%" height="30%">
+
+### AR Cue Design
+<img src="https://github.com/zy0531/ThreatDemo/blob/main/Figures/AR%20Cue.png?raw=true" width="40%" height="40%">
+
+### A Segment of Route
+<img src="https://github.com/zy0531/ThreatDemo/blob/main/Figures/Route.png?raw=true" width="20%" height="20%">
+
 
 ## Procedure
 
