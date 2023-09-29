@@ -1,5 +1,23 @@
 # ThreatDemo
 
+## Hardware
+- Varjo - XR3
+- Base station x 2
+- HTC Vive controller x 2
+- HTC Vive tracker x1 (with a belt to tie the tracker in front of the belly of users)
+
+## Hardware
+- Varjo Base: update to the latest version (newer than 3.5.0)
+- Unity 2020.3.20f1
+
+## Scenes
+- Assets/Scenes/Scene for Experiments/MRMapTraining.unity
+- Assets/Scenes/Scene for Experiments/MRMapExploration.unity
+- Assets/Scenes/Scene for Experiments/MRMapPointing.unity
+- Assets/Scenes/Scene for Experiments/MRMapMapDrawing.unity
+
+## System Design
+
 ## Procedure
 
 ### Lobby Room
