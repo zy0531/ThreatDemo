@@ -1,5 +1,16 @@
 # ThreatDemo
 
+## Introduction
+This is the program of paper **Buzard, A.M., Davidson, J.A., Tighe, E.E., Zhao, Y., Bodenheimer, B., Creem-Regehr, S., & Stefanucci, J. (2023). Evaluating Threat Cues for the Enhancement of Safety in Virtual Navigation. 2023 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct).**
+
+In highly dynamic environments, the ability to detect and respond to potential threats while navigating is essential to ensure safe arrival.
+However, it is often difficult to know where and when these threats may occur,given they are sometimes not visible. 
+This project aims at addressing the question of how to effectively leverage augmented reality (AR) cues to visualize areas of potential threat to navigators while walking in order to promote user safety.
+
+We developed a immersive virtual city where participants were tasked with navigating multiple segments of routes in the virtual city environment to get to predefined target locations while avoiding a potential threat.
+
+A preliminary study shows that Ground Area AR cues led to less time in threat zones whereas Distance Text cues led to more efficient navigated routes.
+
 ## Hardware
 - Varjo - XR3
 - Base station x 2
