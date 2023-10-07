@@ -11,10 +11,7 @@
 - Unity 2020.3.20f1
 
 ## Scenes
-- Assets/Scenes/Scene for Experiments/MRMapTraining.unity
-- Assets/Scenes/Scene for Experiments/MRMapExploration.unity
-- Assets/Scenes/Scene for Experiments/MRMapPointing.unity
-- Assets/Scenes/Scene for Experiments/MRMapMapDrawing.unity
+- CScape_ThreatDemo/Assets/Scenes/Scene for Experiments
 
 ## System Design
 <img src="https://github.com/zy0531/ThreatDemo/blob/main/Figures/System%20Design.png?raw=true" width="90%" height="90%">
