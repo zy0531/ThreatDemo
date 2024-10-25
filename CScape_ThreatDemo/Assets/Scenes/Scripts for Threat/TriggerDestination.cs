@@ -52,6 +52,10 @@ public class TriggerDestination : MonoBehaviour
             TargetAudio.Play();
             TargetCircle.SetActive(false);
 
+            // Disable Movement Control
+            ColorGlobal.IsMovement = false;
+            // set up the questionnaire session
+            ColorGlobal.IsQuestionnaireStarted = true;
         }
     }
 

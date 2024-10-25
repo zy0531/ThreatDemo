@@ -35,6 +35,16 @@ public class CueManager : MonoBehaviour
     /// </summary>
     [SerializeField] GameObject ScreenTintCue;
 
+    /// <summary>
+    /// Ground Circle Cue
+    /// </summary>
+    [SerializeField] GameObject GroundCircleCue;
+
+    /// <summary>
+    /// MiniMap Ground Circle Cue
+    /// </summary>
+    [SerializeField] GameObject MiniMapGroundCircleCue;
+
 
     // Start is called before the first frame update
     void Start()
@@ -213,4 +223,58 @@ public class CueManager : MonoBehaviour
     {
         ScreenTintCue.SetActive(false);
     }
+
+
+
+
+    /// <summary>
+    /// CircleGroundCue
+    /// </summary>
+    /// <param name="level"></param>
+    /// <param name="threatTransform"></param>
+    /// <param name="Red_ViewDis"></param>
+    /// <param name="Yellow_ViewDis"></param>
+    /// <param name="Green_ViewDis"></param>
+    public void InitializeGroundCircleCue(Level level, Transform threatTransform, float Red_ViewDis, float Yellow_ViewDis, float Green_ViewDis)
+    {
+        GroundCircleCue.SetActive(true);
+
+        /// ********** Initialize Ground Circle Cue ********** ///
+        var GroundCircleCue_Red = GroundCircleCue.transform.GetChild(0).GetComponent<GroundCircleCue>();
+        var GroundCircleCue_Yellow = GroundCircleCue.transform.GetChild(1).GetComponent<GroundCircleCue>();
+        var GroundCircleCue_Green = GroundCircleCue.transform.GetChild(2).GetComponent<GroundCircleCue>();
+
+        GroundCircleCue_Red.InitializeCircle(new Vector3(threatTransform.position.x, 0.12f, threatTransform.position.z), Red_ViewDis);
+        GroundCircleCue_Yellow.InitializeCircle(new Vector3(threatTransform.position.x, 0.11f, threatTransform.position.z), Yellow_ViewDis);
+        GroundCircleCue_Green.InitializeCircle(new Vector3(threatTransform.position.x, 0.10f, threatTransform.position.z), Green_ViewDis);
+    }
+
+    public void InactivateGroundCircleCue()
+    {
+        GroundCircleCue.SetActive(false);
+    }
+
+
+
+    /// <summary>
+    /// MiniMapCircleGroundCue
+    /// </summary>
+    /// <param name="level"></param>
+    /// <param name="threatTransform"></param>
+    /// <param name="Red_ViewDis"></param>
+    /// <param name="Yellow_ViewDis"></param>
+    /// <param name="Green_ViewDis"></param>
+    public void InitializeMiniMapGroundCircleCue(Level level, Transform threatTransform, float Red_ViewDis, float Yellow_ViewDis, float Green_ViewDis)
+    {
+        InitializeGroundCircleCue(level, threatTransform, Red_ViewDis, Yellow_ViewDis, Green_ViewDis);
+        GroundCircleCue.GetComponent<ShaderPropertyController>().ChangeShaderRefNum(2);
+        MiniMapGroundCircleCue.SetActive(true);
+    }
+
+    public void InactivateMiniMapGroundCircleCue()
+    {
+        MiniMapGroundCircleCue.SetActive(false);
+        GroundCircleCue.GetComponent<ShaderPropertyController>().ChangeShaderRefNum(1);
+    }
+
 }

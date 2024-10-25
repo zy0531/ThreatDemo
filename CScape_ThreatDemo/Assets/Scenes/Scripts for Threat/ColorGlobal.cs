@@ -19,9 +19,13 @@ public static class ColorGlobal
 
     public static bool IsMovement = false;
 
-    public static bool IsPractice = false;
+    public static bool IsPractice = true; // change from mandatory practice first (false) -> optional practice (true)
     public static bool FirstTrial = false;
     public static bool IsBreak = false;
 
     public static int trial = 0;
+
+    public static bool IsPointingTaskFinished = false;
+    public static bool IsPointingTaskStarted = false;
+    public static bool IsQuestionnaireStarted = false;
 }

@@ -62,15 +62,30 @@ public class TriggerColor : MonoBehaviour
         //Debug.Log("**********************************");
     }
 
+
+    void Update()
+    {
+        // Example: Draw a line from origin to a direction vector
+        Vector3 origin = transform.position; // Example: using the GameObject's position as origin
+        float angle = 45f; // Example: angle in degrees
+
+        // Calculate the end point of the line
+        Vector3 endPoint = origin + UtilsClass.GetVectorFromAngle(angle) * 10f; // Adjust multiplier for visibility
+
+        // Draw the line
+        Debug.DrawLine(origin, endPoint, Color.red);
+    }
+
     public void GenerateTriggerZone()
     {
         Mesh mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
 
-        int rayCount = 50;
+        int rayCount = 100;
         //float angle = this.fov / 2f;
         float angle = startingAngle;
         float angleIncrease = this.fov / rayCount;
+        Debug.Log("angleIncrease" + angleIncrease);
 
         Vector3[] vertices = new Vector3[rayCount + 1 + 1];
         Vector2[] uv = new Vector2[vertices.Length];
@@ -82,21 +97,20 @@ public class TriggerColor : MonoBehaviour
         int triangleIndex = 0;
         for (int i = 0; i <= rayCount; i++)
         {
-            //Vector3 vertex = this.origin + UtilsClass.GetVectorFromAngle(angle) * this.viewDistance;
             Vector3 vertex;
-            RaycastHit hit;
-            LayerMask layerMask = LayerMask.GetMask("Default");
-            if (Physics.Raycast(this.origin, UtilsClass.GetVectorFromAngle(angle), out hit, this.viewDistance, layerMask))
-            {
-                // hit
-                vertex = this.origin + UtilsClass.GetVectorFromAngle(angle) * hit.distance;
-            }
-            else
-            {
-                // no hit
-                vertex = this.origin + UtilsClass.GetVectorFromAngle(angle) * this.viewDistance;
-            }
-
+            //RaycastHit hit;
+            //LayerMask layerMask = LayerMask.GetMask("Default");
+            //if (Physics.Raycast(this.origin, UtilsClass.GetVectorFromAngle(angle), out hit, this.viewDistance, layerMask))
+            //{
+            //    // hit
+            //    vertex = this.origin + UtilsClass.GetVectorFromAngle(angle) * hit.distance;
+            //}
+            //else
+            //{
+            //    // no hit
+            //    vertex = this.origin + UtilsClass.GetVectorFromAngle(angle) * this.viewDistance;
+            //}
+            vertex = this.origin + UtilsClass.GetVectorFromAngle(angle) * this.viewDistance;
             vertices[vertexIndex] = vertex;
 
             if (i > 0)
@@ -116,6 +130,7 @@ public class TriggerColor : MonoBehaviour
         mesh.vertices = vertices;
         mesh.uv = uv;
         mesh.triangles = triangles;
+        // mesh.RecalculateNormals();
 
 
         // Add mesh collider
