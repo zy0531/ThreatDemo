@@ -2,14 +2,32 @@
 Time;Trial;CameraPosition;ThreatPosition;PointingDirection;PointingError(in degrees)
 Time;Trial;CameraPosition;ThreatPosition;PointingDirection;PointingError(in degrees)
 Time;Trial;CameraPosition;ThreatPosition;PointingDirection;PointingError(in degrees)
-10/25/2024 3:30:59 PM;1;(286.8, 1.5, 938.5);(157.0, 0.5, 929.0);(0.8, 0.5, -0.2);161.2839
 Time;Trial;CameraPosition;ThreatPosition;PointingDirection;PointingError(in degrees)
 Time;Trial;CameraPosition;ThreatPosition;PointingDirection;PointingError(in degrees)
 Time;Trial;CameraPosition;ThreatPosition;PointingDirection;PointingError(in degrees)
 Time;Trial;CameraPosition;ThreatPosition;PointingDirection;PointingError(in degrees)
-10/25/2024 3:41:29 PM;1;(286.1, 1.5, 938.3);(157.0, 0.5, 929.0);(0.9, 0.4, -0.2);162.4581
 Time;Trial;CameraPosition;ThreatPosition;PointingDirection;PointingError(in degrees)
-10/25/2024 3:45:41 PM;1;(285.8, 1.5, 942.5);(157.0, 0.5, 929.0);(0.8, 0.5, -0.3);155.0712
-10/25/2024 3:46:20 PM;2;(527.8, 1.6, 938.6);(410.4, 0.5, 932.0);(0.9, 0.5, -0.2);162.9434
-10/25/2024 3:46:59 PM;3;(581.5, 1.6, 774.9);(597.0, 0.5, 864.0);(0.6, 0.3, -0.8);131.7377
-10/25/2024 3:49:56 PM;4;(376.5, 1.6, 737.1);(518.8, 0.5, 740.0);(0.3, 0.3, -0.9);74.92074
+Time;Trial;CameraPosition;ThreatPosition;PointingDirection;PointingError(in degrees)
+11/1/2024 10:55:29 AM;1;(316.1, 1.6, 1009.8);(157.0, 0.5, 929.0);(1.0, 0.2, -0.1);147.0384
+11/1/2024 10:56:14 AM;2;(560.4, 1.6, 934.6);(375.2, 0.5, 984.8);(0.9, 0.2, -0.2);178.5499
+Time;Trial;CameraPosition;ThreatPosition;PointingDirection;PointingError(in degrees)
+11/1/2024 10:59:40 AM;1;(312.3, 1.5, 1005.6);(157.0, 0.5, 929.0);(1.0, 0.2, 0.0);156.3716
+11/1/2024 11:00:02 AM;2;(557.4, 1.6, 939.3);(375.2, 0.5, 984.8);(0.9, 0.2, -0.2);179.6273
+Time;Trial;CameraPosition;ThreatPosition;PointingDirection;PointingError(in degrees)
+Time;Trial;CameraPosition;ThreatPosition;PointingDirection;PointingError(in degrees)
+Time;Trial;CameraPosition;ThreatPosition;PointingDirection;PointingError(in degrees)
+Time;Trial;CameraPosition;ThreatPosition;PointingDirection;PointingError(in degrees)
+Time;Trial;CameraPosition;ThreatPosition;PointingDirection;PointingError(in degrees)
+11/1/2024 11:14:54 AM;1;(311.5, 1.5, 1012.5);(157.0, 0.5, 929.0);(0.0, 0.0, 1.0);118.3887
+11/1/2024 11:15:41 AM;2;(559.4, 1.6, 937.5);(375.2, 0.5, 984.8);(0.0, 0.0, 1.0);75.61182
+Time;Trial;CameraPosition;ThreatPosition;PointingDirection;PointingError(in degrees)
+Time;Trial;CameraPosition;ThreatPosition;PointingDirection;PointingError(in degrees)
+Time;Trial;CameraPosition;ThreatPosition;PointingDirection;PointingError(in degrees)
+Time;Trial;CameraPosition;ThreatPosition;PointingDirection;PointingError(in degrees)
+Time;Trial;CameraPosition;ThreatPosition;PointingDirection;PointingError(in degrees)
+11/1/2024 11:28:10 AM;1;(310.0, 1.5, 1010.2);(157.0, 0.5, 929.0);(0.0, 0.0, 1.0);117.946
+11/1/2024 11:28:26 AM;2;(553.9, 1.6, 935.1);(375.2, 0.5, 984.8);(0.0, 0.0, 1.0);74.46586
+11/1/2024 11:29:05 AM;3;(663.5, 1.6, 713.5);(597.0, 0.5, 864.0);(0.0, 0.0, 1.0);23.82795
+Time;Trial;CameraPosition;ThreatPosition;PointingDirection;PointingError(in degrees)
+11/1/2024 11:30:08 AM;1;(313.4, 1.5, 1006.6);(157.0, 0.5, 929.0);(0.0, 0.0, 1.0);116.3726
+11/1/2024 11:30:27 AM;2;(554.4, 1.6, 939.6);(375.2, 0.5, 984.8);(0.0, 0.0, 1.0);75.83255

@@ -82,10 +82,10 @@ public class Locomotion : MonoBehaviour
             {
                 //Body-based steering (Body rotation is tracked by a Vive Tracker)
                 //rigidbody.velocity = ProjectToXZPlane(bodyTracker.up) * moveSpeed;
-                //rigidbody.velocity = ProjectToXZPlane(bodyTracker.forward) * moveSpeed;
+                rigidbody.velocity = ProjectToXZPlane(bodyTracker.forward) * moveSpeed;
 
                 //Joystick-based steering (rotation is determined by the controller)
-                rigidbody.velocity = ProjectToXZPlane(this.transform.forward) * moveSpeed;
+                //rigidbody.velocity = ProjectToXZPlane(this.transform.forward) * moveSpeed;
             }
         }
     }

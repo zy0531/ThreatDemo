@@ -152,6 +152,32 @@ public class RouteManager : MonoBehaviour
             ColorGlobal.FirstTrial = false;
             // Disable Movement Control
             ColorGlobal.IsMovement = false;
+
+            // Inactivate previous AR Cue
+            InactivatePreviousARCue();
+
+            // Reset Timer
+            timer.SetTimerOff();
+            ColorGlobal.UsedTimeInRed = 0;
+            ColorGlobal.UsedTimeInYellow = 0;
+            ColorGlobal.UsedTime = 0;
+
+            // Disable Movement Control
+            ColorGlobal.IsMovement = false;
+
+            // Do not reset Point
+
+            // Set New route
+            route = Routes[currentRoute_num];
+
+            // Set New Trigger Zone
+            SetTriggerZone(route);
+
+            // Activate Selected Cue
+            ActivateARCue();
+
+            Debug.Log("route.ActivateGroundCircleCue:" + route.ActivateGroundCircleCue);
+            Debug.Log("route.ActivateMiniMapGroundCircleCue:" + route.ActivateMiniMapGroundCircleCue);
         }
             
         
